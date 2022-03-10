@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">demo</string>
+    <string name="we_will_help_you_to_grow_your_bussiness_using_online_server">We will help you to grow your bussiness using online server</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="how_we_work">how we work?</string>
+    <string name="title_activity_forget_password">ForgetPasswordActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="email">Email</string>
+    <string name="next">Next</string>
+    <string name="provide_your_account_s_email_for_which_you_want_to_reset_your_password">Provide your account\'s email for which you want to reset your password</string>
+</resources>
