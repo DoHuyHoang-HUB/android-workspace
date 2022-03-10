@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">android_tuan_2</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="login">Login</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="usb_blutooth_music_receiver">USB Blutooth Music Receiver</string>
+    <string name="hjx_001_bi_n_loa_th_ng_th_nh_loa_blutooth">HJX-001- Biến loa thường thành loa blutooth</string>
+    <string name="g_i">Gửi</string>
+    <string name="c_c_k_h_i_l_ng">Cực kỳ hài lòng</string>
+    <string name="th_m_h_nh_nh">Thêm hình ảnh</string>
+    <string name="hintInputShare">Hãy chia sẽ những điều mà bạn thích về sản phẩm</string>
+    <string name="title_activity_third">ThirdActivity</string>
+    <string name="password_generator">Password generator</string>
+</resources>

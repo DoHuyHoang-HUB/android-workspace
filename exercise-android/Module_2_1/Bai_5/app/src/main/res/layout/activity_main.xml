@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.codingtok.bai5.viewmodel.SellBookAndStatisticalViewModel" />
+        <variable
+            name="mainActivity"
+            type="com.codingtok.bai5.MainActivity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Chương trình tính tiền bán sách online"
+                android:textColor="@color/white"
+                android:background="@color/green_700"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/text_thong_tin_hoa_don"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:text="Thông tin hóa đơn:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+            <TextView
+                android:id="@+id/text_ten_khach_hang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng: "
+                app:layout_constraintBottom_toBottomOf="@id/input_ten_khach_hang"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_ten_khach_hang" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_ten_khach_hang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/text_thong_tin_hoa_don" />
+
+            <TextView
+                android:id="@+id/text_so_luong_sach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng sách: "
+                app:layout_constraintBottom_toBottomOf="@id/input_so_luong_sach"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_so_luong_sach" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_so_luong_sach"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/input_ten_khach_hang" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_vip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khách hàng là vip"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/input_so_luong_sach" />
+
+            <TextView
+                android:id="@+id/text_thanh_tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thành tiền: "
+                app:layout_constraintBottom_toBottomOf="@id/thanh_tien"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/thanh_tien" />
+
+            <TextView
+                android:id="@+id/thanh_tien"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray"
+                android:gravity="center"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_vip"
+                tools:text="Result" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_tinh_tt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tính TT"
+                android:onClick="@{() -> mainActivity.tinhThanhTien()}"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toStartOf="@id/button_tiep"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/thanh_tien" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_tiep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tiếp"
+                android:onClick="@{() -> mainActivity.addCustomer()}"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toStartOf="@id/button_thong_ke"
+                app:layout_constraintStart_toEndOf="@id/button_tinh_tt"
+                app:layout_constraintTop_toTopOf="@id/button_tinh_tt" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_thong_ke"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Thống kê"
+                android:onClick="@{() -> mainActivity.thongKe()}"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/button_tiep"
+                app:layout_constraintTop_toTopOf="@id/button_tinh_tt" />
+
+            <TextView
+                android:id="@+id/text_thong_tin_thong_ke"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:text="Thông tin thống kê: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_tinh_tt" />
+
+            <TextView
+                android:id="@+id/text_tong_so_kh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng số KH: "
+                app:layout_constraintBottom_toBottomOf="@id/input_tong_so_kh"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_tong_so_kh" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_tong_so_kh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/text_thong_tin_thong_ke" />
+
+            <TextView
+                android:id="@+id/text_tong_kh_la_vip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng số KH là VIP: "
+                app:layout_constraintBottom_toBottomOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_tong_kh_la_vip" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_tong_kh_la_vip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/input_tong_so_kh" />
+
+            <TextView
+                android:id="@+id/text_tong_doanh_thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng doanh thu: "
+                app:layout_constraintBottom_toBottomOf="@id/input_tong_doanh_thu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_tong_doanh_thu" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/input_tong_doanh_thu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_tong_kh_la_vip"
+                app:layout_constraintTop_toBottomOf="@id/input_tong_kh_la_vip" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_tong_doanh_thu"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/green_700" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_fahrenheit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/fahrenheit"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/edit_text_fahrenheit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@id/text_fahrenheit"
+        app:layout_constraintTop_toBottomOf="@id/text_fahrenheit"/>
+
+    <TextView
+        android:id="@+id/text_celsius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/celsius"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_fahrenheit"
+        app:layout_constraintStart_toStartOf="@id/text_fahrenheit"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edit_text_celsius"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@id/text_fahrenheit"
+        app:layout_constraintEnd_toEndOf="@id/edit_text_fahrenheit"
+        app:layout_constraintTop_toBottomOf="@id/text_celsius" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/convert_to_celsius"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="@string/convert_to_celsius"
+        app:layout_constraintStart_toStartOf="@id/text_fahrenheit"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_celsius"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/convert_to_fahrenheit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/convert_to_fahrenheit"
+        app:layout_constraintStart_toEndOf="@id/convert_to_celsius"
+        app:layout_constraintTop_toTopOf="@id/convert_to_celsius"
+        app:layout_constraintEnd_toEndOf="@id/edit_text_celsius"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_clear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        app:layout_constraintStart_toStartOf="@id/text_fahrenheit"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/convert_to_celsius"
+        app:layout_constraintEnd_toEndOf="@id/convert_to_fahrenheit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

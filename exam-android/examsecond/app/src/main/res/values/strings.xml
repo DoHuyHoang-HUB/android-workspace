@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">list-view</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="id">Mã số: %s</string>
+    <string name="name">Họ tên: %s</string>
+    <string name="gender">Giới tính: %s</string>
+    <string name="department">Đơn vị: %s</string>
+    <string name="delete">Delete</string>
+    <string name="create_new_employee">Create New Employee</string>
+    <string name="update_employee">Update employee</string>
+    <string-array name="department_list">
+        <item>Phòng Kế toán</item>
+        <item>Phòng Tiếp thị</item>
+        <item>Phòng Quan hệ doanh nghiệp</item>
+        <item>Phòng kỹ thuật</item>
+        <item>Bộ phận quản trị</item>
+        <item>Trung tâm phần mềm</item>
+    </string-array>
+</resources>

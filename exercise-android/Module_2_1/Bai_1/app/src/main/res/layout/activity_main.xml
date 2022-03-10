@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Các kiểu lập trình sự kiện"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@color/green_700" />
+
+    <TextView
+        android:id="@+id/text_so_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Số a: "
+        app:layout_constraintBottom_toBottomOf="@id/edit_text_so_a"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edit_text_so_a" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit_text_so_a"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@id/text_so_a"
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_so_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số b: "
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text_so_b"
+        app:layout_constraintStart_toStartOf="@id/text_so_a"
+        app:layout_constraintTop_toTopOf="@id/edit_text_so_b" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit_text_so_b"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/edit_text_so_a"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_so_a"
+        app:layout_constraintEnd_toEndOf="@id/edit_text_so_a" />
+
+    <TextView
+        android:id="@+id/text_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        tools:text="113"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/green_700"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_so_b" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_tong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_result"
+        android:text="Tổng 2 số"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_hieu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_tong"
+        android:text="Hiệu 2 số"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_tich"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_hieu"
+        android:text="Tích 2 số"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_thuong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_tich"
+        android:text="Thương 2 số"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_ucln"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_thuong"
+        android:text="Ước chung lớn nhất"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_exit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_ucln"
+        android:text="Thoát chương trình"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_light"
+        android:textAllCaps="false" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.codingtok.bai4.ui.viewmodels.PersonViewModel" />
+        <variable
+            name="inputFragment"
+            type="com.codingtok.bai4.ui.input.InputFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.input.InputFragment">
+
+        <TextView
+            android:id="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/green_700"
+            android:gravity="center"
+            android:text="Thông tin cá nhân"
+            android:textColor="@color/yellow"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_ho_ten"
+            app:endIconMode="custom"
+            app:errorEnabled="true"
+            app:helperText="*Required"
+            app:helperTextTextColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Họ tên">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_ho_ten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_cmnd"
+            app:errorEnabled="true"
+            app:helperText="*Required"
+            app:helperTextTextColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_layout_ho_ten"
+            app:counterEnabled="true"
+            app:counterMaxLength="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:hint="CMND">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_cmnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="9"
+                android:background="@color/white"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_bang_cap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_layout_cmnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="Bằng cấp"
+            android:textColor="@color/yellow" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_bang_cap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_bang_cap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked='@{viewModel.certificate.equals("Trung cấp")}'
+                android:onClick='@{() -> viewModel.setCertificate("Trung cấp")}'
+                android:text="Trung cấp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked='@{viewModel.certificate.equals("Cao đẳng")}'
+                android:onClick='@{() -> viewModel.setCertificate("Cao đẳng")}'
+                android:text="Cao đẳng" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked='@{viewModel.certificate.equals("Đại học")}'
+                android:onClick='@{() -> viewModel.setCertificate("Đại học")}'
+                android:layout_weight="1"
+                android:text="Đại học" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_so_thich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_bang_cap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="Sở thích"
+            android:textColor="@color/yellow" />
+
+        <LinearLayout
+            android:id="@+id/layout_check_so_thich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_so_thich"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_doc_bao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked='@{viewModel.interests.contains("Đọc báo")}'
+                android:onCheckedChanged='@{(compoundButton, checked) -> inputFragment.onCheckboxClicked("Đọc báo", checked)}'
+                android:text="Đọc báo" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_doc_sach"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked='@{viewModel.interests.contains("Đọc sách")}'
+                android:onCheckedChanged='@{(compoundButton, checked) -> inputFragment.onCheckboxClicked("Đọc sách", checked)}'
+                android:text="Đọc sách" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_doc_coding"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked='@{viewModel.interests.contains("Đọc coding")}'
+                android:onCheckedChanged='@{(compoundButton, checked) -> inputFragment.onCheckboxClicked("Đọc coding", checked)}'
+                android:text="Đọc coding" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_thong_tin_bo_sung"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_check_so_thich"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:text="Thông tin bổ sung"
+            android:textColor="@color/yellow" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_text_thong_tin_bo_sung"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_thong_tin_bo_sung"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:inputType="textMultiLine" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_gui_thong_tin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_thong_tin_bo_sung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gửi thông tin"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

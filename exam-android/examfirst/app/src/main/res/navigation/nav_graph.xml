@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.codingtok.imageview.ui.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_gameModeFragment"
+            app:destination="@id/gameModeFragment"
+            app:enterAnim="@anim/enter_scale_anim"
+            app:exitAnim="@anim/exit_scale_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameModeFragment"
+        android:name="com.codingtok.imageview.ui.gamemode.GameModeFragment"
+        android:label="fragment_game_mode"
+        tools:layout="@layout/fragment_game_mode" >
+        <action
+            android:id="@+id/action_gameModeFragment_to_onePlayerFragment"
+            app:destination="@id/onePlayerFragment"
+            app:enterAnim="@anim/enter_scale_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_gameModeFragment_to_twoPlayerFragment"
+            app:destination="@id/twoPlayerFragment"
+            app:enterAnim="@anim/enter_scale_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_gameModeFragment_to_autoGameFragment"
+            app:destination="@id/autoGameFragment"
+            app:enterAnim="@anim/enter_scale_anim"
+            app:exitAnim="@anim/exit_scale_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/onePlayerFragment"
+        android:name="com.codingtok.imageview.ui.oneplayer.OnePlayerFragment"
+        android:label="fragment_one_player"
+        tools:layout="@layout/fragment_one_player" />
+    <fragment
+        android:id="@+id/twoPlayerFragment"
+        android:name="com.codingtok.imageview.ui.twoplayer.TwoPlayerFragment"
+        android:label="fragment_two_player"
+        tools:layout="@layout/fragment_two_player" />
+    <fragment
+        android:id="@+id/autoGameFragment"
+        android:name="com.codingtok.imageview.ui.autogame.AutoGameFragment"
+        android:label="fragment_auto_game"
+        tools:layout="@layout/fragment_auto_game" >
+        <action
+            android:id="@+id/action_autoGameFragment_to_gameModeFragment"
+            app:destination="@id/gameModeFragment" />
+    </fragment>
+</navigation>
