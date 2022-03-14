@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_item_list" >
         <action
             android:id="@+id/action_itemListFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" >
+            app:destination="@id/addItemFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
             <argument
                 android:name="position"
                 android:defaultValue="-1" />

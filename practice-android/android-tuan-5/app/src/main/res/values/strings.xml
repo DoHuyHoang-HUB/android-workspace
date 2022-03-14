@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">android-tuan5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_jala">Welcome, Jala!</string>
+    <string name="search_food">Search food</string>
+    <string name="donut">Donut</string>
+    <string name="pink_donut">Pink Donut</string>
+    <string name="floating">Floating</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="delivery_in">Delivery in</string>
+    <string name="restaurants_info">Restaurants info</string>
+    <string name="info">Order a Large Pizza but the size is the equivalent of a medium/small from other places at the same price range</string>
+    <string name="price_food">$ %.2f</string>
+</resources>
