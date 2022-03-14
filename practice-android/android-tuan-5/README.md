@@ -1,7 +1,5 @@
 # Lab 5_a
 ## Home
-<img style="width=120px" src="image-demo/home.png">
-=======
 ![home](https://user-images.githubusercontent.com/76101060/158160199-57e1106d-68ba-492b-90c9-058551cb2d82.png)
 
 ## Food detail
