@@ -31,10 +31,17 @@ import com.codingtok.list_view.R;
 import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.databinding.FragmentAddItemBinding;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
+import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.List;
 
 public class AddItemFragment extends Fragment {
 
@@ -47,7 +54,7 @@ public class AddItemFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAddItemBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(requireActivity()).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(requireContext())).get(EmployeesViewModel.class);
         return binding.getRoot();
     }
 
@@ -124,6 +131,7 @@ public class AddItemFragment extends Fragment {
                 gender = true;
 
             Employee employee = new Employee(id, name, gender, department, encodeImage);
+            writeToFile(employee);
             viewModel.addEmployee(employee);
 
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addItemFragment_to_itemListFragment);
@@ -202,5 +210,37 @@ public class AddItemFragment extends Fragment {
     private Bitmap getEmployeeImage(String encodedImage) {
         byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+    }
+
+    private List<Employee> readFile() {
+
+        List<Employee> employees = null;
+
+        try {
+            FileInputStream fin = requireActivity().openFileInput("data.txt");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+
+            employees = (List<Employee>) ois.readObject();
+
+            fin.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return employees;
+    }
+
+    private void writeToFile(Employee employee) {
+        List<Employee> employees = readFile();
+        employees.add(employee);
+        try {
+            FileOutputStream fout = requireActivity().openFileOutput("data.txt", Context.MODE_PRIVATE);
+            ObjectOutputStream os = new ObjectOutputStream(fout);
+
+            os.writeObject(employees);
+
+            fout.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,6 +1,8 @@
 package com.codingtok.list_view.data.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private String id;
     private String name;
     private boolean gender;
@@ -68,4 +70,6 @@ public class Employee {
                 ", image='" + image + '\'' +
                 '}';
     }
+
+
 }

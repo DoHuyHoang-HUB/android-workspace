@@ -21,6 +21,7 @@ import com.codingtok.list_view.R;
 import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.databinding.FragmentDetailBinding;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
+import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 public class DetailFragment extends Fragment {
 
@@ -31,7 +32,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDetailBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(requireActivity()).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(requireContext())).get(EmployeesViewModel.class);
         return binding.getRoot();
     }
 

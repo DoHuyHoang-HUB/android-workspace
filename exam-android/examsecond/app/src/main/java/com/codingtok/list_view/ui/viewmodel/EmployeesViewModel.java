@@ -1,6 +1,6 @@
 package com.codingtok.list_view.ui.viewmodel;
 
-import android.os.AsyncTask;
+import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -8,16 +8,20 @@ import androidx.lifecycle.ViewModel;
 
 import com.codingtok.list_view.data.model.Employee;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class EmployeesViewModel extends ViewModel {
     private static final String TAG = "EmployeesViewModel";
     private final MutableLiveData<List<Employee>> employees = new MutableLiveData<>();
+    private final Context context;
 
-    public EmployeesViewModel() {
-        employees.postValue(new ArrayList<>());
+    public EmployeesViewModel(Context context) {
+        this.context = context;
+        loadData();
     }
 
     public LiveData<List<Employee>> getEmployees() {
@@ -38,5 +42,26 @@ public class EmployeesViewModel extends ViewModel {
 
     public Employee getEmployee(int position) {
         return this.employees.getValue().get(position);
+    }
+
+    public void loadData() {
+        employees.postValue(readFile());
+    }
+
+    private List<Employee> readFile() {
+
+        List<Employee> employees = null;
+
+        try {
+            FileInputStream fin = context.openFileInput("data.txt");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+
+            employees = (List<Employee>) ois.readObject();
+
+            fin.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return employees;
     }
 }
