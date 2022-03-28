@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/tikiFragment">
+
+    <fragment
+        android:id="@+id/tikiFragment"
+        android:name="com.example.android_tuan_7.ui.TikiFragment"
+        android:label="fragment_tiki"
+        tools:layout="@layout/fragment_tiki" >
+        <action
+            android:id="@+id/action_tikiFragment_to_portraitAFragment"
+            app:destination="@id/portraitAFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/portraitBFragment"
+        android:name="com.example.android_tuan_7.ui.PortraitBFragment"
+        android:label="fragment_portrait_b"
+        tools:layout="@layout/fragment_portrait_b" >
+        <argument
+            android:name="shoes"
+            app:argType="com.example.android_tuan_7.data.model.Shoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/portraitAFragment"
+        android:name="com.example.android_tuan_7.ui.PortraitAFragment"
+        android:label="fragment_portrait_a"
+        tools:layout="@layout/fragment_portrait_a" >
+        <action
+            android:id="@+id/action_portraitAFragment_to_portraitBFragment"
+            app:destination="@id/portraitBFragment" />
+    </fragment>
+</navigation>
