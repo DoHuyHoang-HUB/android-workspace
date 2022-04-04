@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.codingtok.exam_3.databinding.FragmentGridViewBinding;
 
@@ -26,8 +27,8 @@ public class GridViewFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        MyCommunicator myCommunicator = (MyCommunicator) requireContext();
 
+        MyCommunicator myCommunicator = (MyCommunicator) requireContext();
 
         ProductAdapter adapter = new ProductAdapter(DataSource.DATA, requireContext(),
                 (product, position) -> {
@@ -40,5 +41,11 @@ public class GridViewFragment extends Fragment {
         if (!getResources().getBoolean(R.bool.isPhone)) {
             myCommunicator.displayDetail(DataSource.DATA.get(0));
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

@@ -1,10 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GridViewFragment">
+    
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetEnd="10dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/button_back"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layout_input"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_input"
+                    android:layout_marginEnd="5dp"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
+                    android:id="@+id/layout_input"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/button_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/button_cart"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp">
+                    
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_search"
+                        app:tint="#9F9F9F"
+                        android:contentDescription="@string/app_name" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:layout_marginStart="5dp"
+                        android:hint="Tìm kiếm"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:imeOptions="actionSearch" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/button_cart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_cart"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintTop_toTopOf="@id/layout_input"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_input"
+                    app:layout_constraintEnd_toStartOf="@id/expand"
+                    android:contentDescription="@string/app_name" />
+
+                <ImageView
+                    android:id="@+id/expand"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_dot"
+                    app:tint="@color/white"
+                    app:layout_constraintTop_toTopOf="@id/layout_input"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_input"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/app_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/grid_view"
@@ -17,4 +112,4 @@
         tools:listitem="@layout/item_product"
         android:clipToPadding="false" />
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".DetailFragment">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,8 +30,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/iphone_11"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/iphone_11"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +41,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -91,6 +96,7 @@
                     app:layout_constraintTop_toBottomOf="@id/rating_bar"
                     tools:text="12.689.000 đ" />
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -123,8 +129,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:textSize="16sp"
-                        android:text="Thương hiệu" />
+                        android:text="Thương hiệu"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/traderMark_prodct"
@@ -149,8 +155,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:textSize="16sp"
-                        android:text="Xuất xứ" />
+                        android:text="Xuất xứ"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/origin_product"
@@ -188,13 +194,96 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    tools:text="Nội dung về tính năng\nQuay video 4K, chụp ảnh chân dung tuyệt đẹp và chụp phong cảnh rộng với hệ thống camera kép hoàn toàn mới. Chụp ảnh tối ưu trong điều kiện ánh sáng yếu với chế độ Ban Đêm. Xem ảnh, video và chơi game với màu sắc chân thực trên màn hình Liquid Retina 6.1 inch.3 Trải nghiệm hiệu năng tuyệt vời với chip A13 Bionic dành cho game, thực tế ảo tăng cường (AR) và chụp ảnh. Làm được nhiều việc hơn và sạc ít hơn với thời lượng pin bền bỉ cả ngày.2 Và bớt phải lo lắng nhờ khả năng chống nước ở độ sâu tối đa 2 mét trong vòng 30 phút.\n\nTính năng nổi bật\nMàn hình Liquid Retina HD LCD 6.1 inch3\nChống nước và chống bụi (chống nước ở độ sâu 2 mét trong vòng tối đa 30 phút, đạt mức IP68)1\nHệ thống camera kép 12MP với camera Ultra Wide và Wide; chế độ Ban Đêm, chế độ Chân Dung, và khả năng quay video 4K tốc độ tối đa 60 fps\nCamera trước TrueDepth 12MP với chế độ Chân Dung, có khả năng quay video 4K, và quay video chậm\nXác thực bảo mật với Face ID\nChip A13 Bionic với Neural Engine thế hệ thứ ba\nKhả năng sạc nhanh\nSạc không dây4\niOS 14 với các tiện ích được thiết kế lại trên Màn Hình Chính, Thư Viện Ứng Dụng hoàn toàn mới, App Clips cùng nhiều tính năng khác"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:text="Nội dung về tính năng\nQuay video 4K, chụp ảnh chân dung tuyệt đẹp và chụp phong cảnh rộng với hệ thống camera kép hoàn toàn mới. Chụp ảnh tối ưu trong điều kiện ánh sáng yếu với chế độ Ban Đêm. Xem ảnh, video và chơi game với màu sắc chân thực trên màn hình Liquid Retina 6.1 inch.3 Trải nghiệm hiệu năng tuyệt vời với chip A13 Bionic dành cho game, thực tế ảo tăng cường (AR) và chụp ảnh. Làm được nhiều việc hơn và sạc ít hơn với thời lượng pin bền bỉ cả ngày.2 Và bớt phải lo lắng nhờ khả năng chống nước ở độ sâu tối đa 2 mét trong vòng 30 phút.\n\nTính năng nổi bật\nMàn hình Liquid Retina HD LCD 6.1 inch3\nChống nước và chống bụi (chống nước ở độ sâu 2 mét trong vòng tối đa 30 phút, đạt mức IP68)1\nHệ thống camera kép 12MP với camera Ultra Wide và Wide; chế độ Ban Đêm, chế độ Chân Dung, và khả năng quay video 4K tốc độ tối đa 60 fps\nCamera trước TrueDepth 12MP với chế độ Chân Dung, có khả năng quay video 4K, và quay video chậm\nXác thực bảo mật với Face ID\nChip A13 Bionic với Neural Engine thế hệ thứ ba\nKhả năng sạc nhanh\nSạc không dây4\niOS 14 với các tiện ích được thiết kế lại trên Màn Hình Chính, Thư Viện Ứng Dụng hoàn toàn mới, App Clips cùng nhiều tính năng khác" />
             </LinearLayout>
 
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:background="@null"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/button_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/background_oval">
+
+                    <ImageView
+                        android:id="@+id/image_back"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_back"
+                        app:tint="@color/white" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/button_dot"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/background_oval">
+
+                    <ImageView
+                        android:id="@+id/image_dot"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_dot"
+                        app:tint="@color/white" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/button_cart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@id/button_dot"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/background_oval">
+
+                    <ImageView
+                        android:id="@+id/image_cart"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_cart"
+                        app:tint="@color/white" />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

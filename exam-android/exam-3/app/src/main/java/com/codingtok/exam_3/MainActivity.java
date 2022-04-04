@@ -55,5 +55,13 @@ public class MainActivity extends AppCompatActivity implements MyCommunicator {
                     .show(Objects.requireNonNull(manager.findFragmentById(R.id.gridViewFragment)))
                     .commit();
         }
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 }
