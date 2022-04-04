@@ -22,7 +22,6 @@ import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.databinding.FragmentItemListBinding;
 import com.codingtok.list_view.ui.adapter.EmployeesListAdapter;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
-import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,7 +40,7 @@ public class ItemListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle saveInstanceState) {
         binding = FragmentItemListBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(requireContext())).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(EmployeesViewModel.class);
         return binding.getRoot();
     }
 
@@ -52,7 +51,6 @@ public class ItemListFragment extends Fragment {
         adapter = new EmployeesListAdapter(requireContext(), new EmployeesListAdapter.EmployeesListener() {
             @Override
             public void onClick(int position) {
-                Toast.makeText(requireContext(), position, Toast.LENGTH_SHORT).show();
                 NavDirections action = ItemListFragmentDirections.actionItemListFragmentToDetailFragment(position);
                 Navigation.findNavController(viewParent).navigate(action);
             }

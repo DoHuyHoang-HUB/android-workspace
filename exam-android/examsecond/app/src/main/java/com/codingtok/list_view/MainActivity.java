@@ -9,7 +9,6 @@ import android.os.Bundle;
 
 import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
-import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(this)).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(this).get(EmployeesViewModel.class);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();

@@ -23,7 +23,6 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -31,9 +30,9 @@ import com.codingtok.list_view.R;
 import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.databinding.FragmentAddItemBinding;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
-import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -54,7 +53,7 @@ public class AddItemFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAddItemBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(requireContext())).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(EmployeesViewModel.class);
         return binding.getRoot();
     }
 
@@ -131,7 +130,6 @@ public class AddItemFragment extends Fragment {
                 gender = true;
 
             Employee employee = new Employee(id, name, gender, department, encodeImage);
-            writeToFile(employee);
             viewModel.addEmployee(employee);
 
             Navigation.findNavController(binding.getRoot()).navigate(R.id.action_addItemFragment_to_itemListFragment);
@@ -227,20 +225,5 @@ public class AddItemFragment extends Fragment {
             e.printStackTrace();
         }
         return employees;
-    }
-
-    private void writeToFile(Employee employee) {
-        List<Employee> employees = readFile();
-        employees.add(employee);
-        try {
-            FileOutputStream fout = requireActivity().openFileOutput("data.txt", Context.MODE_PRIVATE);
-            ObjectOutputStream os = new ObjectOutputStream(fout);
-
-            os.writeObject(employees);
-
-            fout.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

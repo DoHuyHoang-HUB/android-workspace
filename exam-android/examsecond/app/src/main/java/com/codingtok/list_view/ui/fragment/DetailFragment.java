@@ -21,7 +21,6 @@ import com.codingtok.list_view.R;
 import com.codingtok.list_view.data.model.Employee;
 import com.codingtok.list_view.databinding.FragmentDetailBinding;
 import com.codingtok.list_view.ui.viewmodel.EmployeesViewModel;
-import com.codingtok.list_view.ui.viewmodel.EmployeesViewModelFactory;
 
 public class DetailFragment extends Fragment {
 
@@ -32,7 +31,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDetailBinding.inflate(inflater, container, false);
-        viewModel = new ViewModelProvider(getViewModelStore(), new EmployeesViewModelFactory(requireContext())).get(EmployeesViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(EmployeesViewModel.class);
         return binding.getRoot();
     }
 
@@ -42,6 +41,11 @@ public class DetailFragment extends Fragment {
         int position = DetailFragmentArgs.fromBundle(getArguments()).getItem();
 
         bind(viewModel.getEmployee(position));
+
+        binding.deleteButton.setOnClickListener(view -> {
+            viewModel.deleteEmployee(position);
+            Navigation.findNavController(viewParent).navigate(R.id.action_detailFragment_to_itemListFragment);
+        }) ;
 
         binding.editItem.setOnClickListener(view -> {
             NavDirections action = DetailFragmentDirections.actionDetailFragmentToAddItemFragment(position, getString(R.string.update_employee));

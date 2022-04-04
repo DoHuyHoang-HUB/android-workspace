@@ -17,11 +17,9 @@ import java.util.List;
 public class EmployeesViewModel extends ViewModel {
     private static final String TAG = "EmployeesViewModel";
     private final MutableLiveData<List<Employee>> employees = new MutableLiveData<>();
-    private final Context context;
 
-    public EmployeesViewModel(Context context) {
-        this.context = context;
-        loadData();
+    public EmployeesViewModel() {
+        employees.postValue(new ArrayList<>());
     }
 
     public LiveData<List<Employee>> getEmployees() {
@@ -44,24 +42,8 @@ public class EmployeesViewModel extends ViewModel {
         return this.employees.getValue().get(position);
     }
 
-    public void loadData() {
-        employees.postValue(readFile());
+    public void deleteEmployee(int position) {
+        employees.getValue().remove(position);
     }
 
-    private List<Employee> readFile() {
-
-        List<Employee> employees = null;
-
-        try {
-            FileInputStream fin = context.openFileInput("data.txt");
-            ObjectInputStream ois = new ObjectInputStream(fin);
-
-            employees = (List<Employee>) ois.readObject();
-
-            fin.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return employees;
-    }
 }

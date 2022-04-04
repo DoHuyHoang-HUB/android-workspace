@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Thông tin nhân viên"
+        android:text="Info"
         android:textSize="@dimen/_12ssp"
         android:textAppearance="?attr/textAppearanceOverline"
         app:layout_constraintStart_toEndOf="@id/text_image"
