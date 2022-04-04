@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +21,7 @@ public class MainActivity extends AppCompatActivity implements MyCommunicator {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
 
         FragmentManager manager = this.getSupportFragmentManager();
 

@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.codingtok.exam_3.databinding.ItemProductBinding;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -55,8 +57,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         public void bind(Product product) {
             binding.imageProduct.setImageResource(product.getImage());
             binding.nameProduct.setText(product.getName());
-            DecimalFormat df = new DecimalFormat("#,##0 đ");
+            DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+            otherSymbols.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("#,##0 đ", otherSymbols);
             binding.priceProduct.setText(df.format(product.getPrice()));
+            binding.ratingBar.setRating(product.getRating());
+            binding.soldProduct.setText(context.getResources().getString(R.string.sold, product.getSold()));
         }
     }
 }

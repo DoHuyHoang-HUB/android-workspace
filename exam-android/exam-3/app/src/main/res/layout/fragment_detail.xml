@@ -8,17 +8,18 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="#EEEEEE"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#EEEEEE">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info"
                 android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
                 <ImageView
                     android:id="@+id/image_product"
@@ -26,6 +27,7 @@
                     android:layout_height="350dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/iphone_11"
+                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -34,61 +36,162 @@
                     android:id="@+id/name_product"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:layout_marginEnd="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="@id/image_product"
                     app:layout_constraintTop_toBottomOf="@id/image_product"
                     tools:text="Điện Thoại iPhone 11 64GB - Hàng Chính Hãng" />
 
                 <RatingBar
                     android:id="@+id/rating_bar"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:numStars="5"
-                    app:layout_constraintStart_toStartOf="@id/name_product"
-                    app:layout_constraintTop_toBottomOf="@id/name_product"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_marginTop="10dp"
+                    android:numStars="5"
                     android:rating="3.5"
-                    android:theme="@style/RatingBar" />
+                    android:theme="@style/RatingBar"
+                    app:layout_constraintStart_toStartOf="@id/name_product"
+                    app:layout_constraintTop_toBottomOf="@id/name_product" />
 
                 <TextView
                     android:id="@+id/review_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_bar"
                     app:layout_constraintStart_toEndOf="@id/rating_bar"
                     app:layout_constraintTop_toTopOf="@id/rating_bar"
-                    app:layout_constraintBottom_toBottomOf="@id/rating_bar"
-                    tools:text="(467)"
-                    android:textSize="16sp"
-                    android:layout_marginStart="10dp" />
+                    tools:text="(467)" />
 
                 <TextView
+                    android:id="@+id/sold_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/review_product"
                     app:layout_constraintStart_toEndOf="@id/review_product"
                     app:layout_constraintTop_toTopOf="@id/review_product"
-                    app:layout_constraintBottom_toBottomOf="@id/review_product"
-                    tools:text="|  Đã bán 1000+"
-                    android:textSize="16sp"
-                    android:layout_marginStart="10dp" />
+                    tools:text="|  Đã bán 1000+" />
 
                 <TextView
                     android:id="@+id/price_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/holo_red_light"
                     android:fontFamily="sans-serif-medium"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@id/rating_bar"
                     app:layout_constraintTop_toBottomOf="@id/rating_bar"
-                    tools:text="20.000 đ" />
+                    tools:text="12.689.000 đ" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/info_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="Thông tin chi tiết"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FAFAFA"
+                    android:orientation="horizontal"
+                    android:paddingVertical="15dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textSize="16sp"
+                        android:text="Thương hiệu" />
+
+                    <TextView
+                        android:id="@+id/traderMark_prodct"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="Apple" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:paddingVertical="15dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textSize="16sp"
+                        android:text="Xuất xứ" />
+
+                    <TextView
+                        android:id="@+id/origin_product"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="Mỹ" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_description_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_detail"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Mô tả sản phẩm"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/description_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:text="Nội dung về tính năng\nQuay video 4K, chụp ảnh chân dung tuyệt đẹp và chụp phong cảnh rộng với hệ thống camera kép hoàn toàn mới. Chụp ảnh tối ưu trong điều kiện ánh sáng yếu với chế độ Ban Đêm. Xem ảnh, video và chơi game với màu sắc chân thực trên màn hình Liquid Retina 6.1 inch.3 Trải nghiệm hiệu năng tuyệt vời với chip A13 Bionic dành cho game, thực tế ảo tăng cường (AR) và chụp ảnh. Làm được nhiều việc hơn và sạc ít hơn với thời lượng pin bền bỉ cả ngày.2 Và bớt phải lo lắng nhờ khả năng chống nước ở độ sâu tối đa 2 mét trong vòng 30 phút.\n\nTính năng nổi bật\nMàn hình Liquid Retina HD LCD 6.1 inch3\nChống nước và chống bụi (chống nước ở độ sâu 2 mét trong vòng tối đa 30 phút, đạt mức IP68)1\nHệ thống camera kép 12MP với camera Ultra Wide và Wide; chế độ Ban Đêm, chế độ Chân Dung, và khả năng quay video 4K tốc độ tối đa 60 fps\nCamera trước TrueDepth 12MP với chế độ Chân Dung, có khả năng quay video 4K, và quay video chậm\nXác thực bảo mật với Face ID\nChip A13 Bionic với Neural Engine thế hệ thứ ba\nKhả năng sạc nhanh\nSạc không dây4\niOS 14 với các tiện ích được thiết kế lại trên Màn Hình Chính, Thư Viện Ứng Dụng hoàn toàn mới, App Clips cùng nhiều tính năng khác"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
         </RelativeLayout>
 

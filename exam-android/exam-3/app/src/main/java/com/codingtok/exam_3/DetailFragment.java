@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.codingtok.exam_3.databinding.FragmentDetailBinding;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class DetailFragment extends Fragment {
 
@@ -54,7 +55,15 @@ public class DetailFragment extends Fragment {
     private void bind(Product product) {
         binding.imageProduct.setImageResource(product.getImage());
         binding.nameProduct.setText(product.getName());
-        DecimalFormat df = new DecimalFormat("#,##0 đ");
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#,##0 đ", otherSymbols);
         binding.priceProduct.setText(df.format(product.getPrice()));
+        binding.ratingBar.setRating(product.getRating());
+        binding.reviewProduct.setText(getResources().getString(R.string.review, product.getReviews()));
+        binding.soldProduct.setText(getResources().getString(R.string.sold, product.getSold()));
+        binding.traderMarkProdct.setText(product.getTraderMark());
+        binding.originProduct.setText(product.getOrigin());
+        binding.descriptionProduct.setText(product.getDescription());
     }
 }
