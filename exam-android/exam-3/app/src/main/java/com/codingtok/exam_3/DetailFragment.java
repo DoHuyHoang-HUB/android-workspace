@@ -1,6 +1,5 @@
 package com.codingtok.exam_3;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 

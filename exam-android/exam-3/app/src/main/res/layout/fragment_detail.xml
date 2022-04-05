@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,8 +10,10 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@id/appbarbottom"
+        app:layout_constraintTop_toTopOf="parent"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -207,6 +209,7 @@
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:background="@null"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
@@ -286,4 +289,37 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <LinearLayout
+        android:id="@+id/appbarbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_shadow"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" >
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Trả góp"
+            android:textSize="16sp"
+            app:strokeColor="@color/purple_500"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_margin="5dp"
+            android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Chọn mua"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            app:backgroundTint="#FF424E"
+            android:layout_margin="5dp"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
