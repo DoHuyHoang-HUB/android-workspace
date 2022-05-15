@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/drawable/background_checkbox.xml" value="0.305" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/drawable/background_input.xml" value="0.305" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/drawable/background_input_2.xml" value="0.305" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/layout/activity_second.xml" value="0.25" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/android-tuan-2/app/src/main/res/layout/activity_third.xml" value="0.33" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/lab-02/app/src/main/res/layout/activity_main.xml" value="0.14709569577935647" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/lab-02/app/src/main/res/layout/activity_second.xml" value="0.15433946130825138" />
+        <entry key="..\:/DHCN/Java/Lap_trinh_thiet_bi_di_dong_android/TH/android-workspace/practice-android/lab-02/app/src/main/res/layout/activity_third.xml" value="0.15433946130825138" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

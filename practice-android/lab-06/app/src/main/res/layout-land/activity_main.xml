@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/portraitAFragment"
+        android:name="com.example.lab_06.ui.PortraitAFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_portrait_a" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/portraitBFragment"
+        android:name="com.example.lab_06.ui.PortraitBFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_portrait_b" />
+
+</LinearLayout>
